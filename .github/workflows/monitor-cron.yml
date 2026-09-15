@@ -1,0 +1,17 @@
+name: PulseGuard Health Check Daemon
+
+on:
+  schedule:
+    # Run every 5 minutes
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  check-monitors:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger PulseGuard Check Endpoint
+        run: |
+          TARGET_URL="${{ secrets.PULSEGUARD_PRODUCTION_URL || 'https://pulseguard.vercel.app' }}"
+          echo "Triggering checks against $TARGET_URL/api/check"
+          curl -fsS -m 30 -X POST "$TARGET_URL/api/check" -H "Content-Type: application/json" || true
