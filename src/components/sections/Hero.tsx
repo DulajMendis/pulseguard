@@ -145,7 +145,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onOpenLab, onOpenCont
                   <div ref={headingUiRef} className="hero-heading-ui">
                     <div className="hero-heading-ui-tab">
                       <span className="hero-heading-ui-tab-h1">H1</span>
-                      <span>systems architect</span>
+                      <span>hero heading</span>
                     </div>
                   </div>
                   <h1 className="hero-heading">
@@ -153,13 +153,8 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onOpenLab, onOpenCont
                   </h1>
                 </div>
 
-                {/* Subtitle Paragraph */}
-                <p className="hero-paragraph-mobile">
-                  World-class operating systems for ambitious enterprises.
-                </p>
-
-                {/* Thimira Signature CTA Link */}
-                <div className="pt-2">
+                {/* Thimira Signature CTA Link - Positioned directly below H1 */}
+                <div className="pt-2 sm:pt-4">
                   <button
                     type="button"
                     onClick={onOpenContact}

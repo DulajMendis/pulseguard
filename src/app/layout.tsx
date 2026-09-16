@@ -124,20 +124,20 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
+    <html lang="en" suppressHydrationWarning className="light">
       <head>
-        {/* Anti-FOUC theme initializer */}
+        {/* Anti-FOUC theme initializer - Defaults to light mode matching Thimira aesthetic */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               try {
                 const storedTheme = localStorage.getItem('theme');
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (storedTheme === 'light') {
-                  document.documentElement.classList.remove('dark');
-                  document.documentElement.classList.add('light');
-                } else {
+                if (storedTheme === 'dark') {
                   document.documentElement.classList.add('dark');
+                  document.documentElement.classList.remove('light');
+                } else {
+                  document.documentElement.classList.add('light');
+                  document.documentElement.classList.remove('dark');
                 }
               } catch (e) {}
             `,

@@ -10,8 +10,8 @@ export const FooterCta: React.FC<FooterCtaProps> = ({ onOpenProjectRequest }) =>
   return (
     <section className="py-24 sm:py-36 px-4 sm:px-6 text-center bg-white dark:bg-black">
       <div className="max-w-5xl mx-auto space-y-10 flex flex-col items-center">
-        <h3 className="fluid-gradient-heading text-4xl sm:text-6xl md:text-7xl lg:text-[80px] font-bold tracking-[-0.045em] max-w-4xl leading-[1.05]">
-          Interested in engineering something extraordinary?
+        <h3 className="fluid-gradient-heading text-5xl sm:text-7xl md:text-8xl lg:text-[96px] font-bold tracking-[-0.045em] max-w-4xl leading-[1.02]">
+          Interested in<br />working with me?
         </h3>
 
         <button

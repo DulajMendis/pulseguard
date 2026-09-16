@@ -65,8 +65,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommand, onOpenProjectRequ
   };
 
   const navLinks = [
-    { label: 'Capabilities', href: '#benefits', id: 'benefits' },
-    { label: 'Systems', href: '#projects', id: 'projects' },
+    { label: 'Benefits', href: '#benefits', id: 'benefits' },
+    { label: 'Projects', href: '#projects', id: 'projects' },
     { label: 'Process', href: '#process', id: 'process' },
     { label: 'FAQ', href: '#faq', id: 'faq' },
   ];

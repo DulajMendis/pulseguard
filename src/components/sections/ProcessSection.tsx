@@ -53,7 +53,7 @@ export const ProcessSection: React.FC = () => {
           <h2 className="text-2xl sm:text-[26px] font-medium tracking-[-0.03em] text-[#1d1d1f] dark:text-white">
             Process
           </h2>
-          <h3 className="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-[-0.04em] text-[#1d1d1f] dark:text-white leading-[1.05]">
+          <h3 className="font-sans text-4xl sm:text-6xl md:text-7xl font-bold tracking-[-0.04em] text-[#1d1d1f] dark:text-white leading-[1.05]">
             My workflow to engineer <br />and ship resilient systems.
           </h3>
         </div>
@@ -71,7 +71,7 @@ export const ProcessSection: React.FC = () => {
                 <div className="text-base font-medium text-[#006ddb] mb-2">
                   {item.step}
                 </div>
-                <h4 className="font-serif text-2xl sm:text-3xl font-bold tracking-[-0.025em] text-[#1d1d1f] dark:text-white mb-3 leading-snug">
+                <h4 className="font-sans text-2xl sm:text-3xl font-bold tracking-[-0.025em] text-[#1d1d1f] dark:text-white mb-3 leading-snug">
                   {item.title}
                 </h4>
                 <p className="text-base sm:text-lg text-[#1d1d1f]/75 dark:text-slate-300 leading-relaxed font-normal">

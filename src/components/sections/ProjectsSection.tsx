@@ -38,7 +38,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenDeepDive
           <h2 className="text-2xl sm:text-[26px] font-medium tracking-[-0.03em] text-[#1d1d1f] dark:text-white">
             Projects
           </h2>
-          <h3 className="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-[-0.04em] text-[#1d1d1f] dark:text-white leading-[1.05]">
+          <h3 className="font-sans text-4xl sm:text-6xl md:text-7xl font-bold tracking-[-0.04em] text-[#1d1d1f] dark:text-white leading-[1.05]">
             A small selection of my systems.
           </h3>
           <p className="text-base sm:text-lg text-[#1d1d1f]/75 dark:text-slate-400 max-w-2xl pt-1 font-normal">

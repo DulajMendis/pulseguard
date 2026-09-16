@@ -60,13 +60,10 @@ export const FaqSection: React.FC = () => {
   return (
     <section id="faq" className="py-24 sm:py-32 px-4 sm:px-6 bg-[#f5f5f7] dark:bg-[#161617]">
       <div className="max-w-5xl mx-auto space-y-12">
-        {/* Header */}
-        <div className="text-left space-y-2">
-          <h2 className="text-2xl sm:text-[26px] font-medium tracking-[-0.03em] text-[#1d1d1f] dark:text-white">
-            FAQ
-          </h2>
-          <h3 className="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-[-0.04em] text-[#1d1d1f] dark:text-white leading-[1.05]">
-            Frequently asked questions.
+        {/* Header - Centered matching screen recording */}
+        <div className="text-center space-y-2">
+          <h3 className="font-sans text-4xl sm:text-5xl md:text-6xl font-bold tracking-[-0.04em] text-[#1d1d1f] dark:text-white leading-[1.08]">
+            Frequently asked questions
           </h3>
         </div>
 

@@ -112,20 +112,24 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-slate-200 dark:border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500 dark:text-slate-400">
-          <div className="flex items-center gap-2">
-            <span>© {new Date().getFullYear()} Dulaj Mendis.</span>
-            <span>All rights reserved.</span>
+        {/* Bottom Bar - Styled to match screen recording */}
+        <div className="pt-8 border-t border-slate-200 dark:border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-medium text-slate-500 dark:text-slate-400">
+          <div className="flex items-center gap-1.5">
+            <span>© {new Date().getFullYear()} Dulaj Mendis. All rights reserved.</span>
           </div>
 
-          <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1">
-              <Cpu className="w-3.5 h-3.5 text-emerald-500" />
-              Built with Next.js 16 & React 19
+          <div className="flex items-center gap-6">
+            <a href="#principles" className="hover:text-[#006ddb] transition-colors">
+              8 Rules for Systems
+            </a>
+            <a href="#hero" className="hover:text-[#006ddb] transition-colors">
+              Privacy
+            </a>
+            <span className="opacity-40">·</span>
+            <span className="flex items-center gap-1 font-mono text-[11px]">
+              <Cpu className="w-3 h-3 text-emerald-500" />
+              Next.js 16
             </span>
-            <span>·</span>
-            <span>WCAG 2.2 AA Compliant</span>
           </div>
         </div>
       </div>

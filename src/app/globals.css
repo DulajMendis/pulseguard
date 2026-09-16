@@ -90,7 +90,8 @@
 
 /* Thimira signature iridescent fluid gradient heading */
 .fluid-gradient-heading {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
+  font-weight: 700;
   animation: intro-gradient 10s ease infinite both;
   background: linear-gradient(91.36deg, #eca658, #f391a6 13.02%, #e188c3 25.52%, #a58de3 37.5%, #56abec 49.48%, #737eb7 63.02%, #c8638c 72.92%, #dd5d57 84.38%, #df6c51 97.92%);
   background-size: 200% 200%;
@@ -375,11 +376,11 @@
 }
 
 .hero-heading {
-  font-family: var(--font-serif);
-  font-size: clamp(34px, 5.2vw, 84px);
+  font-family: var(--font-sans);
+  font-size: clamp(38px, 6vw, 92px);
   font-weight: 700;
   letter-spacing: -0.045em;
-  line-height: 1.05;
+  line-height: 1.02;
   color: var(--foreground);
   margin: 0;
   position: relative;
