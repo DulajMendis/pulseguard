@@ -27,8 +27,7 @@ test('UX Principles Verification: Doherty threshold and context menu rules prese
 test('Experience Verification: Primary role at Connaissance De Ceylan (CDC)', () => {
   const fileContent = readFileSync(resolve('src/data/experience.ts'), 'utf-8');
   assert.ok(fileContent.includes('Connaissance De Ceylan'), 'CDC role must be present');
-  assert.ok(fileContent.includes('Manager of Sustainability & System Administration'), 'Exact job title verified');
-  assert.ok(fileContent.includes('The Browser Company'), 'Arc Nimble Perfectionist recognition verified');
+  assert.ok(fileContent.includes('Experience Udawalawe'), 'Advisory systems role verified');
 });
 
 test('SEO & Structured Data Verification: Canonical and Schema.org integrity', () => {

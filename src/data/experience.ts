@@ -33,18 +33,4 @@ export const verifiedExperiences: Experience[] = [
     ],
     technologies: ['Laravel 13', 'Filament v5', 'Inertia.js', 'React 19', 'MySQL', 'Tailwind CSS', 'Operations Modeling'],
   },
-  {
-    id: 'arc-honor',
-    title: 'Nimble Perfectionist Recognition',
-    company: 'The Browser Company',
-    roleType: 'recognition',
-    period: '17 Feb 2024',
-    location: 'New York / Global',
-    summary: 'Recognized for relentless attention to craft, interaction precision, and early power-user product feedback during the Arc Browser 1-year anniversary milestone.',
-    highlights: [
-      'Acknowledged for deep feedback on interaction engineering, tab ergonomics, and keyboard-first productivity workflows.',
-      'Embodied the "Nimble Perfectionist" design philosophy: obsessing over microseconds of response time and layout stability.',
-    ],
-    technologies: ['Interaction Design', 'Ergonomics', 'UX Engineering', 'Keyboard-First Workflows'],
-  },
 ];

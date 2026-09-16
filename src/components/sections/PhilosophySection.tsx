@@ -22,34 +22,6 @@ export const PhilosophySection: React.FC = () => {
         </p>
       </div>
 
-      {/* Recognition Callout: Arc Nimble Perfectionist */}
-      <div className="p-6 md:p-8 rounded-3xl glass-panel border border-amber-500/30 bg-gradient-to-r from-amber-500/5 via-slate-900/40 to-transparent relative overflow-hidden shadow-xl">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <Badge variant="amber" size="sm">
-                The Browser Company Milestone
-              </Badge>
-              <span className="text-xs font-mono text-slate-400">17 Feb 2024</span>
-            </div>
-            <h3 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-              <Award className="w-6 h-6 text-amber-500 shrink-0" />
-              Arc Browser: Nimble Perfectionist
-            </h3>
-            <p className="text-sm text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
-              Awarded during Arc's 1-year anniversary for relentless dedication to interaction precision, ergonomic tab workflows, and finding edge cases where microseconds matter.
-            </p>
-          </div>
-
-          <div className="px-5 py-3 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 font-mono text-xs flex items-center gap-3 shrink-0">
-            <span className="text-2xl font-black">100%</span>
-            <div className="leading-tight">
-              <div className="font-bold">CRAFT STANDARD</div>
-              <div className="text-[10px] opacity-75">No compromise on polish</div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Grid of Core Engineering Principles */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

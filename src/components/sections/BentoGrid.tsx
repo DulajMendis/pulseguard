@@ -47,7 +47,7 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ onOpenPrinciples, onOpenPr
     'Sri Lanka Railway Transit GIS',
     'Experience Udawalawe',
     'Ceylon 1850',
-    'The Browser Company (Arc Perfectionist)',
+    'Owen Rich Hotel & Logistics',
   ];
 
   return (
