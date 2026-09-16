@@ -49,6 +49,16 @@ test('Security Headers Verification: next.config.js enforces strict policies', (
 test('Static Asset Verification: Favicon, OG Image, Robots, and Sitemap exist', () => {
   assert.ok(existsSync(resolve('public/icon.svg')), 'icon.svg exists');
   assert.ok(existsSync(resolve('public/og-image.png')), 'og-image.png exists');
+  assert.ok(existsSync(resolve('public/hero-ui.webp')), 'hero-ui.webp desktop monitor frame exists');
   assert.ok(existsSync(resolve('src/app/robots.ts')), 'robots.ts exists');
   assert.ok(existsSync(resolve('src/app/sitemap.ts')), 'sitemap.ts exists');
+});
+
+test('Desktop Zoom-Out Mechanics: Hero.tsx has scroll-driven scale and monitor framing', () => {
+  const heroContent = readFileSync(resolve('src/components/sections/Hero.tsx'), 'utf-8');
+  assert.ok(heroContent.includes('hero-scroll-wrap'), 'Hero scroll wrap track present');
+  assert.ok(heroContent.includes('sticky-wrap--hero'), 'Sticky wrapper present');
+  assert.ok(heroContent.includes('hero-ui'), 'Desktop monitor UI frame present');
+  assert.ok(heroContent.includes('hero-heading-ui'), 'Inspector tab box present');
+  assert.ok(heroContent.includes('0.36'), 'Scale target 0.36 present');
 });
