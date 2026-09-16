@@ -172,7 +172,7 @@
   font-size: 10vw;
   left: 50%;
   margin-left: -8.45em;
-  margin-top: 0;
+  margin-top: 3.2em;
   max-width: none;
   opacity: 0;
   position: relative;
@@ -192,12 +192,14 @@
   justify-content: center;
   left: 0;
   right: 0;
-  top: -2.5rem;
+  top: 0;
+  bottom: auto;
   position: absolute;
   z-index: 2;
   width: 100%;
-  max-width: 100%;
-  padding: 0 1.5rem;
+  max-width: none;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .hero__header {
@@ -210,6 +212,207 @@
 
 .sticky-gap {
   height: 120vh;
+}
+
+/* Avatar with Thimira-exact glowing multi-radial aura */
+.hero-img-wrap {
+  position: relative;
+  width: 25vw;
+  height: 25vw;
+  min-width: 350px;
+  min-height: 350px;
+  max-width: 40vh;
+  max-height: 40vh;
+  margin-bottom: 54px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: heroImgWrap 0.8s 0.8s backwards;
+  will-change: opacity;
+}
+
+@media (min-width: 1440px) {
+  .hero-img-wrap {
+    min-width: 380px;
+    min-height: 380px;
+  }
+}
+
+.hero-img-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  padding: 12px;
+  background-color: hsla(0, 0%, 84%, 0.45);
+  border: 1px solid hsla(0, 0%, 100%, 0.4);
+  z-index: 3;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
+}
+
+.hero-img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  animation: heroImgScale 0.8s 0.8s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  will-change: transform;
+}
+
+.hero-img-shadow-wrap {
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  border-radius: 50%;
+  filter: blur(20px);
+  padding: 20%;
+  pointer-events: none;
+}
+
+.hero-img-shadow-wrap.hero-img-shadow-wrap--intro {
+  z-index: 1;
+}
+
+.hero-img-shadow {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-image:
+    radial-gradient(circle farthest-side at 100% 100%, #9873ff, rgba(152, 115, 255, 0)),
+    radial-gradient(circle farthest-side at 100% 0, #0ba5f7, rgba(85, 196, 255, 0)),
+    radial-gradient(circle farthest-side at 0 0, #ff763c, rgba(255, 176, 60, 0)),
+    radial-gradient(circle farthest-side at 0 100%, #ff5aaa, rgba(255, 90, 170, 0));
+}
+
+#hero-img-shadow-1 {
+  animation: heroImgShadow1 0.8s 1.2s backwards;
+}
+
+#hero-img-shadow-2 {
+  animation: heroImgShadow2 1.6s 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes heroImgScale {
+  0% { transform: scale(2); }
+  to { transform: scale(1); }
+}
+
+@keyframes heroImgShadow1 {
+  0% { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes heroImgShadow2 {
+  0% { opacity: 1; transform: scale(1); }
+  99% { height: 140%; opacity: 0; transform: scale(6); }
+  to { height: 0; opacity: 0; }
+}
+
+@keyframes heroImgWrap {
+  0% { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(100px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Figma/Webflow Inspector Box */
+.hero-heading-ui-wrap {
+  position: relative;
+  margin-top: 18px;
+  margin-bottom: 22px;
+  display: inline-block;
+}
+
+.hero-heading-ui {
+  position: absolute;
+  border: 1px solid #168bf4;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+  will-change: opacity;
+}
+
+.hero-heading-ui-tab {
+  align-items: center;
+  background-color: #168bf4;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  bottom: auto;
+  color: #ffffff;
+  display: flex;
+  font-size: 11px;
+  font-family: monospace;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  height: 20px;
+  left: -1px;
+  padding: 3px 12px 2px 8px;
+  position: absolute;
+  right: auto;
+  top: -20px;
+}
+
+.hero-heading-ui-tab-h1 {
+  margin-right: 4px;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--foreground);
+  margin-bottom: 0;
+  animation: fadeIn 0.8s 0.4s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  will-change: transform, opacity;
+}
+
+.hero-heading {
+  font-family: var(--font-sans);
+  font-size: clamp(48px, 6.4vw, 92px);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+  color: var(--foreground);
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 0.8s 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  will-change: transform, opacity;
+}
+
+.hero-paragraph-mobile {
+  display: none;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  color: #6e6e73;
+}
+
+.cta-link.cta-link--hero {
+  font-size: 23px;
+  padding: 10px 28px;
+  position: relative;
+  z-index: 10;
+  animation: fadeIn 0.8s 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  will-change: transform, opacity;
 }
 
 @media screen and (max-width: 991px) {
@@ -229,176 +432,37 @@
   .hero {
     height: auto !important;
     transform: none !important;
+    overflow: hidden;
   }
   .container.container--hero {
     position: static !important;
     height: auto !important;
     min-height: 100vh !important;
-    padding-top: 130px !important;
+    padding-top: 114px !important;
     padding-bottom: 80px !important;
+    justify-content: space-around !important;
   }
-}
-
-/* Avatar with Thimira-exact glowing multi-radial aura */
-.hero-img-wrap {
-  position: relative;
-  width: 250px;
-  height: 250px;
-  margin-bottom: 32px;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@media (min-width: 1200px) {
   .hero-img-wrap {
-    width: 280px;
-    height: 280px;
-    margin-bottom: 40px;
+    width: 45vh !important;
+    height: 45vh !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    margin-bottom: 32px !important;
   }
-}
-
-.hero-img-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  padding: 8px;
-  background-color: hsla(0, 0%, 84%, 0.35);
-  border: 1px solid hsla(0, 0%, 100%, 0.45);
-  z-index: 3;
-  overflow: hidden;
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
-}
-
-.hero-img {
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.hero-img-shadow-wrap {
-  position: absolute;
-  top: -20%;
-  left: -20%;
-  width: 140%;
-  height: 140%;
-  border-radius: 50%;
-  filter: blur(24px);
-  pointer-events: none;
-}
-
-.hero-img-shadow-wrap.hero-img-shadow-wrap--intro {
-  z-index: 1;
-}
-
-.hero-img-shadow {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-image:
-    radial-gradient(circle farthest-side at 100% 100%, #9873ff, rgba(152, 115, 255, 0)),
-    radial-gradient(circle farthest-side at 100% 0, #0ba5f7, rgba(85, 196, 255, 0)),
-    radial-gradient(circle farthest-side at 0 0, #ff763c, rgba(255, 176, 60, 0)),
-    radial-gradient(circle farthest-side at 0 100%, #ff5aaa, rgba(255, 90, 170, 0));
-}
-
-@keyframes heroShadowPulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.85;
+  .hero-heading {
+    font-size: 54px !important;
   }
-  50% {
-    transform: scale(1.08);
-    opacity: 1;
+  .hero-eyebrow {
+    font-size: 22px !important;
   }
-}
-
-.hero-img-shadow-wrap {
-  animation: heroShadowPulse 6s ease-in-out infinite;
-}
-
-/* Figma/Webflow Inspector Box */
-.hero-heading-ui-wrap {
-  position: relative;
-  margin-top: 14px;
-  margin-bottom: 22px;
-  display: inline-block;
-}
-
-.hero-heading-ui {
-  position: absolute;
-  inset: -6px -14px -6px -14px;
-  border: 1px solid #006ddb;
-  border-radius: 3px;
-  opacity: 0;
-  pointer-events: none;
-  z-index: 0;
-  will-change: opacity;
-}
-
-.hero-heading-ui-tab {
-  position: absolute;
-  top: -22px;
-  left: -1px;
-  height: 22px;
-  padding: 2px 10px 2px 8px;
-  background-color: #006ddb;
-  color: #ffffff;
-  font-size: 11px;
-  font-family: monospace;
-  font-weight: 700;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.04em;
-}
-
-.hero-heading-ui-tab-h1 {
-  margin-right: 6px;
-  opacity: 0.85;
-}
-
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-size: 24px;
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  color: var(--foreground);
-  margin-bottom: 0;
-}
-
-.hero-heading {
-  font-family: var(--font-sans);
-  font-size: clamp(38px, 6vw, 92px);
-  font-weight: 700;
-  letter-spacing: -0.045em;
-  line-height: 1.02;
-  color: var(--foreground);
-  margin: 0;
-  position: relative;
-  z-index: 1;
-}
-
-.hero-paragraph-mobile {
-  font-size: clamp(18px, 1.8vw, 24px);
-  line-height: 1.4;
-  letter-spacing: -0.02em;
-  color: var(--muted-foreground);
-  max-width: 620px;
-  margin: 0 auto 24px;
-  font-weight: 400;
-}
-
-.cta-link--hero {
-  font-size: 20px;
+  .hero-paragraph-mobile {
+    display: block !important;
+    margin: 12px auto 16px !important;
+    max-width: 460px !important;
+  }
+  .cta-link.cta-link--hero {
+    font-size: 18px !important;
+  }
 }
 
 /* Thimira-style CTA link with directional chevron */

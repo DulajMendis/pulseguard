@@ -144,39 +144,43 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onOpenLab, onOpenCont
                 <div className="hero-heading-ui-wrap">
                   <div ref={headingUiRef} className="hero-heading-ui">
                     <div className="hero-heading-ui-tab">
-                      <span className="hero-heading-ui-tab-h1">H1</span>
-                      <span>hero heading</span>
+                      <div className="hero-heading-ui-tab-h1">H1</div>
+                      <div>hero heading</div>
                     </div>
                   </div>
-                  <h1 className="hero-heading">
-                    Systems Architect &amp;<br className="hidden sm:inline" />Full-Stack Engineer.
-                  </h1>
+                  <h1 className="hero-heading">Systems Architect.</h1>
                 </div>
 
+                {/* Mobile Subheading (matches Thimira responsive behavior) */}
+                <p className="hero-paragraph-mobile">
+                  Enterprise systems &amp; full-stack architecture.
+                </p>
+
                 {/* Thimira Signature CTA Link - Positioned directly below H1 */}
-                <div className="pt-2 sm:pt-4">
-                  <button
-                    type="button"
-                    onClick={onOpenContact}
-                    className="cta-link cta-link--hero group"
-                  >
-                    <span className="cta-link-text">Start a project request</span>
-                    <span className="cta-link-icon cta-link-icon--hero">
-                      <svg
-                        width="14"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="3.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M8 20L16 12L8 4" />
-                      </svg>
-                    </span>
-                  </button>
-                </div>
+                <a
+                  href="#projects"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onOpenContact();
+                  }}
+                  className="cta-link cta-link--hero group"
+                >
+                  <span className="cta-link-text">Start a project request</span>
+                  <span className="cta-link-icon cta-link-icon--hero">
+                    <svg
+                      width="14"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="3.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M8 20L16 12L8 4" />
+                    </svg>
+                  </span>
+                </a>
               </div>
             </div>
           </header>
