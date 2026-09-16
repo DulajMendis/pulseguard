@@ -46,15 +46,15 @@ export const ProcessSection: React.FC = () => {
   ];
 
   return (
-    <section id="process" className="py-24 sm:py-32 px-4 sm:px-6 bg-slate-50 dark:bg-slate-900/50">
+    <section id="process" className="py-24 sm:py-32 px-4 sm:px-6 bg-[#f5f5f7] dark:bg-[#161617]">
       <div className="max-w-6xl mx-auto space-y-12">
         {/* Header */}
         <div className="text-left space-y-2">
-          <div className="text-xs font-semibold tracking-wider uppercase text-blue-600 dark:text-blue-400 font-mono">
+          <h2 className="text-2xl sm:text-[26px] font-medium tracking-[-0.03em] text-[#1d1d1f] dark:text-white">
             Process
-          </div>
-          <h3 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-950 dark:text-white leading-tight">
-            My workflow to architect<br />and ship resilient systems.
+          </h2>
+          <h3 className="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-[-0.04em] text-[#1d1d1f] dark:text-white leading-[1.05]">
+            My workflow to engineer <br />and ship resilient systems.
           </h3>
         </div>
 
@@ -68,19 +68,19 @@ export const ProcessSection: React.FC = () => {
               }`}
             >
               <div>
-                <div className="text-xs font-bold font-mono text-blue-600 dark:text-blue-400 mb-2">
+                <div className="text-base font-medium text-[#006ddb] mb-2">
                   {item.step}
                 </div>
-                <h4 className="text-xl font-bold tracking-tight text-slate-950 dark:text-white mb-3">
+                <h4 className="font-serif text-2xl sm:text-3xl font-bold tracking-[-0.025em] text-[#1d1d1f] dark:text-white mb-3 leading-snug">
                   {item.title}
                 </h4>
-                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p className="text-base sm:text-lg text-[#1d1d1f]/75 dark:text-slate-300 leading-relaxed font-normal">
                   {item.description}
                 </p>
               </div>
 
               {item.hasConfetti && (
-                <div className="pt-6 mt-6 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                <div className="pt-6 mt-6 border-t border-black/[0.06] dark:border-white/[0.08] flex items-center justify-between">
                   <div className="flex items-center gap-2 text-xs font-mono text-emerald-600 dark:text-emerald-400">
                     <CheckCircle className="w-4 h-4" />
                     <span>Verified Production Ready</span>
@@ -88,7 +88,7 @@ export const ProcessSection: React.FC = () => {
                   <button
                     type="button"
                     onClick={triggerConfetti}
-                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold transition-all shadow-sm"
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#006ddb] hover:bg-[#005bb8] text-white text-xs font-semibold transition-all shadow-sm"
                   >
                     <Sparkles className="w-3.5 h-3.5" />
                     <span>{confettiActive ? '🎉 Deployed!' : 'Simulate Launch'}</span>

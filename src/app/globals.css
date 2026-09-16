@@ -6,25 +6,29 @@
 
 @layer base {
   :root {
-    --background: #f8f9fa;
-    --foreground: #111827;
+    --background: #ffffff;
+    --secondary-bg: #f5f5f7;
+    --foreground: #1d1d1f;
     --card: #ffffff;
-    --card-foreground: #111827;
+    --card-foreground: #1d1d1f;
     --border: rgba(0, 0, 0, 0.08);
-    --muted: #f1f3f5;
-    --muted-foreground: #6b7280;
+    --blue: #006ddb;
+    --muted: #f5f5f7;
+    --muted-foreground: #86868b;
     --font-serif: 'PT Serif', Georgia, serif;
     --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   }
 
   .dark {
-    --background: #090a0f;
-    --foreground: #f1f5f9;
-    --card: #11131a;
+    --background: #000000;
+    --secondary-bg: #161617;
+    --foreground: #f5f5f7;
+    --card: #1c1c1e;
     --card-foreground: #ffffff;
-    --border: rgba(255, 255, 255, 0.09);
-    --muted: #161822;
-    --muted-foreground: #94a3b8;
+    --border: rgba(255, 255, 255, 0.12);
+    --blue: #2997ff;
+    --muted: #1c1c1e;
+    --muted-foreground: #a1a1a6;
   }
 
   * {
@@ -84,19 +88,22 @@
   }
 }
 
-/* Thimira-style fluid gradient headings */
+/* Thimira signature iridescent fluid gradient heading */
 .fluid-gradient-heading {
-  background: linear-gradient(180deg, #111827 0%, #374151 55%, #6b7280 100%);
+  font-family: var(--font-serif);
+  animation: intro-gradient 10s ease infinite both;
+  background: linear-gradient(91.36deg, #eca658, #f391a6 13.02%, #e188c3 25.52%, #a58de3 37.5%, #56abec 49.48%, #737eb7 63.02%, #c8638c 72.92%, #dd5d57 84.38%, #df6c51 97.92%);
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  letter-spacing: -0.04em;
-  line-height: 1.08;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
 }
 
-.dark .fluid-gradient-heading {
-  background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 55%, #94a3b8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+@keyframes intro-gradient {
+  0% { background-position: 0% 4%; }
+  50% { background-position: 100% 97%; }
+  100% { background-position: 0% 4%; }
 }
 
 /* Bento card styling matching thimirathenuwara.com */
@@ -104,7 +111,7 @@
   background-color: var(--card);
   border: 1px solid var(--border);
   border-radius: 28px;
-  padding: 2.25rem;
+  padding: 2.5rem;
   position: relative;
   box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.02);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -114,20 +121,85 @@
   box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.06);
 }
 
+/* Specific Thimira-style bento card gradients */
+.intro-grid-cell--animation {
+  background: linear-gradient(120deg, #eb4f56, #9d66e9) !important;
+  color: #ffffff !important;
+  border-style: none !important;
+}
+
+.intro-card--pixel {
+  background: linear-gradient(45deg, #16327c, #1ebf98) !important;
+  color: #ffffff !important;
+  border-style: none !important;
+}
+
+/* Avatar radiating ripple shadow animation */
+@keyframes heroImgShadowRipple {
+  0% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  80% {
+    opacity: 0;
+    transform: scale(2.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.5);
+  }
+}
+
+.hero-avatar-ripple-1 {
+  animation: heroImgShadowRipple 3s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.hero-avatar-ripple-2 {
+  animation: heroImgShadowRipple 3s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  animation-delay: 1.2s;
+}
+
+/* Thimira-style CTA link with directional chevron */
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #006ddb;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.cta-link:hover {
+  opacity: 0.8;
+}
+
+.cta-link-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.cta-link:hover .cta-link-icon {
+  transform: translateX(4px);
+}
+
 /* 3D Flip Card FAQ styling */
 .faq-item {
   perspective: 1600px;
   position: relative;
-  min-height: 130px;
+  min-height: 120px;
 }
 
 .faq-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 130px;
+  min-height: 120px;
   transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .faq-item.is-flipped .faq-card-inner {
@@ -142,12 +214,17 @@
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-radius: 24px;
-  padding: 1.5rem 1.75rem;
+  padding: 1.75rem 2rem;
   display: flex;
   align-items: center;
   background-color: var(--card);
   border: 1px solid var(--border);
-  box-shadow: 0 2px 12px -2px rgba(0, 0, 0, 0.02);
+  box-shadow: inset 0 0 0 1px hsla(0, 0%, 51%, 0.16);
+  transition: box-shadow 0.2s;
+}
+
+.faq-front:hover {
+  box-shadow: inset 0 0 0 2px #006ddb;
 }
 
 .faq-back {
@@ -155,16 +232,23 @@
   background-color: var(--card);
 }
 
+/* Edge mask for infinite marquee */
+.mask-marquee {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
 /* Glass panel */
 .glass-panel {
   background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .dark .glass-panel {
-  background: rgba(17, 19, 26, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(17, 19, 26, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
+
 

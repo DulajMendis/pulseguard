@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 
 export default function CustomCursor() {
-  const [position, setPosition] = useState({ x: -100, y: -100 });
   const [trailing, setTrailing] = useState({ x: -100, y: -100 });
   const [isHovered, setIsHovered] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
@@ -22,7 +21,6 @@ export default function CustomCursor() {
     const handleMouseMove = (e: MouseEvent) => {
       targetX = e.clientX;
       targetY = e.clientY;
-      setPosition({ x: e.clientX, y: e.clientY });
       if (!isVisible) setIsVisible(true);
     };
 
@@ -36,6 +34,8 @@ export default function CustomCursor() {
         target.closest('button') ||
         target.closest('[role="button"]') ||
         target.closest('.intro-card') ||
+        target.closest('.cta-link') ||
+        target.closest('.faq-item') ||
         target.closest('.interactive-target')
       ) {
         setIsHovered(true);
@@ -46,8 +46,8 @@ export default function CustomCursor() {
 
     const animateTrailing = () => {
       // Smooth lerp (linear interpolation)
-      currentX += (targetX - currentX) * 0.22;
-      currentY += (targetY - currentY) * 0.22;
+      currentX += (targetX - currentX) * 0.28;
+      currentY += (targetY - currentY) * 0.28;
       setTrailing({ x: currentX, y: currentY });
       animFrame = requestAnimationFrame(animateTrailing);
     };
@@ -70,32 +70,17 @@ export default function CustomCursor() {
   if (!isVisible) return null;
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-[9999] overflow-hidden transition-opacity duration-300">
-      {/* Small center dot */}
-      <div
-        className={`fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-900 dark:bg-white transition-transform duration-75 ease-out ${
-          isClicking ? 'scale-75' : isHovered ? 'scale-150' : 'scale-100'
-        }`}
-        style={{
-          width: '6px',
-          height: '6px',
-          transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
-        }}
-      />
-
-      {/* Trailing magnetic ring */}
-      <div
-        className={`fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full border border-slate-900/30 dark:border-white/30 transition-[width,height,border-color,background-color] duration-200 ease-out ${
-          isHovered
-            ? 'w-14 h-14 bg-slate-900/5 dark:bg-white/10 border-slate-900/50 dark:border-white/50'
-            : isClicking
-            ? 'w-7 h-7 bg-slate-900/10 dark:bg-white/15'
-            : 'w-9 h-9'
-        }`}
-        style={{
-          transform: `translate3d(${trailing.x}px, ${trailing.y}px, 0)`,
-        }}
-      />
-    </div>
+    <div
+      className="pointer-events-none fixed z-[9999] top-0 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full transition-[width,height,opacity,background-color] duration-200 ease-out will-change-transform"
+      style={{
+        transform: `translate3d(${trailing.x}px, ${trailing.y}px, 0)`,
+        width: isHovered ? '48px' : isClicking ? '16px' : '20px',
+        height: isHovered ? '48px' : isClicking ? '16px' : '20px',
+        backgroundColor: isHovered ? 'rgba(0, 109, 219, 0.15)' : 'rgba(152, 152, 152, 0.45)',
+        border: isHovered ? '1.5px solid rgba(0, 109, 219, 0.4)' : 'none',
+        backdropFilter: isHovered ? 'blur(2px)' : 'none',
+      }}
+    />
   );
 }
+

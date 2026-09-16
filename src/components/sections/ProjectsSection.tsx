@@ -35,13 +35,13 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenDeepDive
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div className="text-left space-y-2">
-          <div className="text-xs font-semibold tracking-wider uppercase text-blue-600 dark:text-blue-400 font-mono">
+          <h2 className="text-2xl sm:text-[26px] font-medium tracking-[-0.03em] text-[#1d1d1f] dark:text-white">
             Projects
-          </div>
-          <h3 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-950 dark:text-white leading-tight">
+          </h2>
+          <h3 className="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-[-0.04em] text-[#1d1d1f] dark:text-white leading-[1.05]">
             A small selection of my systems.
           </h3>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl pt-1">
+          <p className="text-base sm:text-lg text-[#1d1d1f]/75 dark:text-slate-400 max-w-2xl pt-1 font-normal">
             Battle-tested production systems, not boilerplate demos. Derived from verified repositories, database schemas, and live operational deployments.
           </p>
         </div>

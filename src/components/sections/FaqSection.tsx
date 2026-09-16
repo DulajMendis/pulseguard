@@ -58,14 +58,14 @@ export const FaqSection: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="py-24 sm:py-32 px-4 sm:px-6 bg-[#f8f9fa] dark:bg-[#090a0f]">
+    <section id="faq" className="py-24 sm:py-32 px-4 sm:px-6 bg-[#f5f5f7] dark:bg-[#161617]">
       <div className="max-w-5xl mx-auto space-y-12">
         {/* Header */}
         <div className="text-left space-y-2">
-          <div className="text-xs font-semibold tracking-wider uppercase text-blue-600 dark:text-blue-400 font-mono">
+          <h2 className="text-2xl sm:text-[26px] font-medium tracking-[-0.03em] text-[#1d1d1f] dark:text-white">
             FAQ
-          </div>
-          <h3 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-950 dark:text-white leading-tight">
+          </h2>
+          <h3 className="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-[-0.04em] text-[#1d1d1f] dark:text-white leading-[1.05]">
             Frequently asked questions.
           </h3>
         </div>
@@ -78,27 +78,27 @@ export const FaqSection: React.FC = () => {
               <div
                 key={faq.id}
                 onClick={() => toggleFlip(faq.id)}
-                className={`faq-item cursor-pointer select-none group min-h-[140px] ${
+                className={`faq-item cursor-pointer select-none group min-h-[130px] ${
                   isFlipped ? 'is-flipped' : ''
                 }`}
               >
                 <div className="faq-card-inner">
                   {/* Front View (Question) */}
-                  <div className="faq-front justify-between hover:border-slate-400 dark:hover:border-slate-600 transition-colors">
-                    <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white pr-4 leading-snug">
+                  <div className="faq-front justify-between bg-white dark:bg-[#1c1c1e] rounded-[24px] border border-black/[0.08] dark:border-white/[0.08] p-6 sm:p-7">
+                    <h4 className="text-base sm:text-lg font-semibold text-[#1d1d1f] dark:text-white pr-4 leading-snug tracking-[-0.02em]">
                       {faq.question}
                     </h4>
-                    <div className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center flex-shrink-0 text-slate-600 dark:text-slate-300 group-hover:bg-slate-950 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-slate-950 transition-colors">
+                    <div className="w-8 h-8 rounded-full bg-[#f5f5f7] dark:bg-slate-800 flex items-center justify-center flex-shrink-0 text-[#1d1d1f] dark:text-slate-300 group-hover:bg-[#006ddb] group-hover:text-white transition-colors">
                       <Plus className="w-4 h-4" />
                     </div>
                   </div>
 
                   {/* Back View (Answer) */}
-                  <div className="faq-back justify-between bg-slate-900 text-white dark:bg-white dark:text-slate-950 border-slate-900 dark:border-white">
-                    <p className="text-xs sm:text-sm text-slate-200 dark:text-slate-800 leading-relaxed pr-4 font-normal">
+                  <div className="faq-back justify-between bg-white dark:bg-[#1c1c1e] text-[#1d1d1f] dark:text-white rounded-[24px] border border-black/[0.08] dark:border-white/[0.08] p-6 sm:p-7">
+                    <p className="text-sm sm:text-[15px] text-[#1d1d1f]/75 dark:text-slate-300 leading-relaxed pr-4 font-normal">
                       {faq.answer}
                     </p>
-                    <div className="w-8 h-8 rounded-full bg-slate-800 dark:bg-slate-100 flex items-center justify-center flex-shrink-0 text-slate-300 dark:text-slate-700 hover:bg-slate-700 transition-colors">
+                    <div className="w-8 h-8 rounded-full bg-[#f5f5f7] dark:bg-slate-800 flex items-center justify-center flex-shrink-0 text-[#1d1d1f] dark:text-slate-300 group-hover:bg-[#006ddb] group-hover:text-white transition-colors">
                       <X className="w-4 h-4" />
                     </div>
                   </div>

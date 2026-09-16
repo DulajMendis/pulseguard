@@ -65,10 +65,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenDeepDiv
           </div>
 
           <div>
-            <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors">
+            <h3 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-[#1d1d1f] dark:text-white group-hover:text-[#006ddb] transition-colors">
               {project.title}
             </h3>
-            <p className="text-sm font-medium text-slate-600 dark:text-slate-400 mt-0.5">
+            <p className="text-sm font-medium text-[#1d1d1f]/60 dark:text-slate-400 mt-0.5">
               {project.subtitle} · <span className="font-mono text-xs">{project.period}</span>
             </p>
           </div>

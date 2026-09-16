@@ -6,21 +6,18 @@ import { Terminal, Github, Shield, Cpu, ArrowUpRight } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="border-t border-slate-200 dark:border-slate-800/80 bg-slate-100/50 dark:bg-slate-950/40 py-16 px-4 sm:px-6">
+    <footer className="border-t border-black/[0.08] dark:border-white/[0.08] bg-white dark:bg-black py-16 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto space-y-12">
         {/* Top Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Col 1: Identity */}
           <div className="md:col-span-2 space-y-4">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-500 font-mono font-bold text-xs">
-                DM
-              </div>
-              <span className="text-base font-bold tracking-tight text-slate-900 dark:text-white">
+              <span className="text-lg font-semibold tracking-[-0.025em] text-[#1d1d1f] dark:text-white">
                 Dulaj Mendis
               </span>
             </div>
-            <p className="text-sm text-slate-600 dark:text-slate-400 max-w-md leading-relaxed">
+            <p className="text-sm text-[#1d1d1f]/70 dark:text-slate-400 max-w-md leading-relaxed font-normal">
               Systems Architect & Full-Stack Engineer based in Colombo, Sri Lanka. Manager of Sustainability and System Administration at Connaissance De Ceylan (CDC). Builder of Travex, PulseGuard, and the Sri Lanka Railway transit network.
             </p>
             <div className="flex items-center gap-3 text-xs font-mono text-slate-500 dark:text-slate-400">

@@ -36,7 +36,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#f8f9fa] dark:bg-[#090a0f] text-slate-900 dark:text-slate-100 selection:bg-blue-500/20 selection:text-blue-600">
+    <div className="flex flex-col min-h-screen bg-white dark:bg-black text-[#1d1d1f] dark:text-[#f5f5f7] selection:bg-[#006ddb]/20 selection:text-[#006ddb]">
       {/* Magnetic Desktop Cursor */}
       <CustomCursor />
 
