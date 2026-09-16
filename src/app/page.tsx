@@ -4,22 +4,26 @@ import React, { useState } from 'react';
 import { Navbar } from '@/components/layout/Navbar';
 import { CommandMenu } from '@/components/layout/CommandMenu';
 import { Footer } from '@/components/layout/Footer';
+import CustomCursor from '@/components/ui/CustomCursor';
 import { Hero } from '@/components/sections/Hero';
-import { MetricsBar } from '@/components/sections/MetricsBar';
+import { ManifestoSection } from '@/components/sections/ManifestoSection';
+import { BentoGrid } from '@/components/sections/BentoGrid';
 import { ProjectsSection } from '@/components/sections/ProjectsSection';
 import { CaseStudyModal } from '@/components/sections/CaseStudyModal';
-import { InteractionLab } from '@/components/sections/InteractionLab';
+import { ProcessSection } from '@/components/sections/ProcessSection';
+import { FaqSection } from '@/components/sections/FaqSection';
+import { FooterCta } from '@/components/sections/FooterCta';
+import { ProjectRequestModal } from '@/components/sections/ProjectRequestModal';
 import { PhilosophySection } from '@/components/sections/PhilosophySection';
-import { ExperienceSection } from '@/components/sections/ExperienceSection';
-import { ContactSection } from '@/components/sections/ContactSection';
 import { Project } from '@/types';
 
 export default function Home() {
   const [isCommandOpen, setIsCommandOpen] = useState(false);
+  const [isProjectRequestOpen, setIsProjectRequestOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [showPhilosophyModal, setShowPhilosophyModal] = useState(false);
 
   const handleOpenProjectById = (projectId: string) => {
-    // Find project from verified list
     import('@/data/projects').then(({ verifiedProjects }) => {
       const found = verifiedProjects.find((p) => p.id === projectId);
       if (found) setSelectedProject(found);
@@ -32,9 +36,15 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Navigation Dock */}
-      <Navbar onOpenCommand={() => setIsCommandOpen(true)} />
+    <div className="flex flex-col min-h-screen bg-[#f8f9fa] dark:bg-[#090a0f] text-slate-900 dark:text-slate-100 selection:bg-blue-500/20 selection:text-blue-600">
+      {/* Magnetic Desktop Cursor */}
+      <CustomCursor />
+
+      {/* Top Navbar */}
+      <Navbar
+        onOpenCommand={() => setIsCommandOpen(true)}
+        onOpenProjectRequest={() => setIsProjectRequestOpen(true)}
+      />
 
       {/* Global Command Menu (⌘K) */}
       <CommandMenu
@@ -49,28 +59,60 @@ export default function Home() {
         onClose={() => setSelectedProject(null)}
       />
 
-      {/* Main Content Area */}
+      {/* Multi-Step Project Request Modal */}
+      <ProjectRequestModal
+        isOpen={isProjectRequestOpen}
+        onClose={() => setIsProjectRequestOpen(false)}
+      />
+
+      {/* Main Content Sections */}
       <main id="main-content" className="flex-1">
+        {/* 1. Hero Section */}
         <Hero
           onExploreWork={() => scrollToSection('projects')}
-          onOpenLab={() => scrollToSection('lab')}
-          onOpenContact={() => scrollToSection('contact')}
+          onOpenLab={() => scrollToSection('benefits')}
+          onOpenContact={() => setIsProjectRequestOpen(true)}
         />
 
-        <MetricsBar />
+        {/* 2. Manifesto Giant Typography */}
+        <ManifestoSection />
 
+        {/* 3. 11-Cell Signature Bento Grid */}
+        <BentoGrid
+          onOpenPrinciples={() => setShowPhilosophyModal(true)}
+          onOpenProjectRequest={() => setIsProjectRequestOpen(true)}
+        />
+
+        {/* 4. Curated Projects Showcase */}
         <ProjectsSection onOpenDeepDive={(proj) => setSelectedProject(proj)} />
 
-        <InteractionLab />
+        {/* 5. 5-Step Systems Process */}
+        <ProcessSection />
 
-        <PhilosophySection />
+        {/* 6. Signature 3D Flip Card FAQ Grid */}
+        <FaqSection />
 
-        <ExperienceSection />
+        {/* Optional Expandable Mantras Section */}
+        {showPhilosophyModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md animate-fade-in">
+            <div className="relative w-full max-w-4xl max-h-[85vh] overflow-y-auto rounded-3xl bg-white dark:bg-slate-900 p-8 border border-slate-200 dark:border-slate-800 shadow-2xl space-y-6">
+              <button
+                type="button"
+                onClick={() => setShowPhilosophyModal(false)}
+                className="absolute top-6 right-6 p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white"
+              >
+                ✕
+              </button>
+              <PhilosophySection />
+            </div>
+          </div>
+        )}
 
-        <ContactSection />
+        {/* 7. Footer Fluid Heading CTA */}
+        <FooterCta onOpenProjectRequest={() => setIsProjectRequestOpen(true)} />
       </main>
 
-      {/* Technical Footer */}
+      {/* Footer */}
       <Footer />
     </div>
   );

@@ -27,7 +27,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenDeepDiv
 
   return (
     <article
-      className="rounded-3xl glass-panel border border-slate-200 dark:border-slate-800/80 p-6 md:p-8 space-y-6 hover:border-slate-400 dark:hover:border-slate-700 transition-all duration-200 relative overflow-hidden group shadow-xl flex flex-col justify-between"
+      className="intro-card !p-7 sm:!p-9 space-y-6 hover:shadow-xl transition-all duration-200 relative overflow-hidden group flex flex-col justify-between"
     >
       {/* Accent corner line */}
       <div

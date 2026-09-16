@@ -31,19 +31,18 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenDeepDive
   });
 
   return (
-    <section id="projects" className="py-24 px-4 sm:px-6 max-w-6xl mx-auto space-y-12">
+    <section id="projects" className="py-24 sm:py-32 px-4 sm:px-6 max-w-6xl mx-auto space-y-12">
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-        <div className="space-y-3">
-          <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-            <Layers className="w-4 h-4" />
-            Selected Systems Architecture
+        <div className="text-left space-y-2">
+          <div className="text-xs font-semibold tracking-wider uppercase text-blue-600 dark:text-blue-400 font-mono">
+            Projects
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-            Battle-tested production systems, not boilerplate demos.
-          </h2>
-          <p className="text-base text-slate-600 dark:text-slate-400 max-w-2xl">
-            Every project listed here is derived from verified codebase repositories, database schemas, and live operational deployments.
+          <h3 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-950 dark:text-white leading-tight">
+            A small selection of my systems.
+          </h3>
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl pt-1">
+            Battle-tested production systems, not boilerplate demos. Derived from verified repositories, database schemas, and live operational deployments.
           </p>
         </div>
 

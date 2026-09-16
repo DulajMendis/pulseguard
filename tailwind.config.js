@@ -26,9 +26,13 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['var(--font-sans)', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        sans: ['var(--font-sans)', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        serif: ['var(--font-serif)', 'PT Serif', 'Georgia', 'serif'],
         mono: ['var(--font-mono)', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
         display: ['var(--font-display)', 'var(--font-sans)', 'system-ui', 'sans-serif'],
+      },
+      borderRadius: {
+        'bento': '28px',
       },
       keyframes: {
         'fade-in': {
@@ -46,12 +50,17 @@ module.exports = {
         'shimmer': {
           '100%': { transform: 'translateX(100%)' },
         },
+        'marquee': {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         'fade-in': 'fade-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards',
         'fade-in-down': 'fade-in-down 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards',
         'pulse-subtle': 'pulse-subtle 3s ease-in-out infinite',
         'shimmer': 'shimmer 2s infinite',
+        'marquee': 'marquee 25s linear infinite',
       },
     },
   },

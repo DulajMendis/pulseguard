@@ -8,11 +8,12 @@ import { Badge } from '@/components/ui/Badge';
 
 interface NavbarProps {
   onOpenCommand: () => void;
+  onOpenProjectRequest?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenCommand }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenCommand, onOpenProjectRequest }) => {
   const [colomboTime, setColomboTime] = useState<string>('');
-  const [isDark, setIsDark] = useState<boolean>(true);
+  const [isDark, setIsDark] = useState<boolean>(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<string>('hero');
 
@@ -26,10 +27,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommand }) => {
     updateTime();
     const interval = setInterval(updateTime, 1000);
 
-    // Scroll spy for active section
+    // Scroll spy
     const handleScroll = () => {
-      const sections = ['hero', 'projects', 'telemetry', 'lab', 'experience', 'principles', 'contact'];
-      const scrollY = window.scrollY + 120;
+      const sections = ['hero', 'benefits', 'projects', 'process', 'faq'];
+      const scrollY = window.scrollY + 140;
       for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
@@ -64,53 +65,40 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommand }) => {
   };
 
   const navLinks = [
-    { label: 'Work', href: '#projects', id: 'projects' },
-    { label: 'Telemetry', href: '#telemetry', id: 'telemetry' },
-    { label: 'UX Lab', href: '#lab', id: 'lab' },
-    { label: 'Systems & Principles', href: '#principles', id: 'principles' },
-    { label: 'Experience', href: '#experience', id: 'experience' },
-    { label: 'Contact', href: '#contact', id: 'contact' },
+    { label: 'Capabilities', href: '#benefits', id: 'benefits' },
+    { label: 'Systems', href: '#projects', id: 'projects' },
+    { label: 'Process', href: '#process', id: 'process' },
+    { label: 'FAQ', href: '#faq', id: 'faq' },
   ];
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-40 px-4 py-3 sm:px-6">
+      <header className="fixed top-0 left-0 right-0 z-40 px-4 py-4 sm:px-8">
         <div className="max-w-6xl mx-auto">
           <nav
             aria-label="Main Navigation"
-            className="glass-panel rounded-2xl px-4 py-2.5 flex items-center justify-between shadow-xl transition-all"
+            className="glass-panel rounded-full px-5 py-2.5 flex items-center justify-between shadow-sm transition-all"
           >
             {/* Logo & Identity */}
             <Link
               href="#hero"
-              className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded-lg p-1"
+              className="text-base font-semibold tracking-tight text-slate-900 dark:text-white hover:opacity-80 transition-opacity focus:outline-none"
             >
-              <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500/20 transition-all font-mono font-bold text-sm">
-                DM
-              </div>
-              <div className="flex flex-col">
-                <span className="text-sm font-semibold tracking-tight text-slate-900 dark:text-slate-100 flex items-center gap-1.5">
-                  Dulaj Mendis
-                  <span className="hidden md:inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                </span>
-                <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 hidden md:block">
-                  Systems Architect · CDC
-                </span>
-              </div>
+              Dulaj Mendis
             </Link>
 
             {/* Desktop Navigation Links */}
-            <div className="hidden lg:flex items-center gap-1 bg-slate-100 dark:bg-slate-900/60 p-1 rounded-xl border border-slate-200 dark:border-slate-800/80">
+            <div className="hidden md:flex items-center gap-6">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.id;
                 return (
                   <Link
                     key={link.id}
                     href={link.href}
-                    className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-all duration-150 ${
+                    className={`text-[13px] font-medium transition-colors ${
                       isActive
-                        ? 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm font-semibold'
-                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
+                        ? 'text-slate-950 dark:text-white font-semibold'
+                        : 'text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
                     }`}
                   >
                     {link.label}
@@ -119,24 +107,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommand }) => {
               })}
             </div>
 
-            {/* Controls: Colombo Time, Command Palette, Theme */}
-            <div className="flex items-center gap-2">
-              {/* Colombo Local Time */}
-              <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800/80 text-[11px] font-mono text-slate-600 dark:text-slate-400">
+            {/* Right CTAs */}
+            <div className="flex items-center gap-2.5">
+              {/* Colombo Clock Pill */}
+              <div className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/80 text-[11px] font-mono text-slate-600 dark:text-slate-300">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="font-semibold text-slate-900 dark:text-slate-200">{colomboTime || '00:00:00'}</span>
-                <span className="text-[10px] opacity-70">CMB</span>
+                <span>{colomboTime || '11:45:00'}</span>
+                <span className="opacity-60 text-[10px]">CMB</span>
               </div>
 
-              {/* Command Menu ⌘K trigger */}
+              {/* Command Palette Trigger */}
               <button
                 type="button"
                 onClick={onOpenCommand}
                 aria-label="Open Command Menu (Press ⌘K)"
-                className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 hover:border-slate-400 dark:hover:border-slate-600 transition-colors"
+                className="hidden sm:flex items-center justify-center p-2 rounded-full text-slate-600 hover:text-slate-950 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               >
-                <Command className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline font-mono text-[11px]">⌘K</span>
+                <Command className="w-4 h-4" />
               </button>
 
               {/* Theme Toggle */}
@@ -144,9 +131,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommand }) => {
                 type="button"
                 onClick={toggleTheme}
                 aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
-                className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
+                className="p-2 rounded-full text-slate-600 hover:text-slate-950 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               >
-                {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-slate-700" />}
+                {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4" />}
+              </button>
+
+              {/* Project Request Pill Button */}
+              <button
+                type="button"
+                onClick={onOpenProjectRequest}
+                className="group flex items-center gap-2 pl-4 pr-3 py-2 rounded-full bg-slate-950 text-white dark:bg-white dark:text-slate-950 text-xs font-semibold hover:bg-slate-800 dark:hover:bg-slate-200 transition-all shadow-sm"
+              >
+                <span>Project request</span>
+                <span className="w-4 h-4 rounded-full flex items-center justify-center transform group-hover:translate-x-0.5 transition-transform">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 20L16 12L8 4" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
               </button>
 
               {/* Mobile Menu Toggle */}
@@ -155,7 +156,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommand }) => {
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle navigation menu"
                 aria-expanded={mobileMenuOpen}
-                className="lg:hidden p-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900/80 text-slate-700 dark:text-slate-300"
+                className="md:hidden p-2 rounded-full text-slate-700 dark:text-slate-300"
               >
                 {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
               </button>
@@ -164,24 +165,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommand }) => {
 
           {/* Mobile Drawer */}
           {mobileMenuOpen && (
-            <div className="lg:hidden mt-2 p-4 rounded-2xl glass-panel shadow-2xl border border-slate-200 dark:border-slate-800 animate-fade-in">
+            <div className="md:hidden mt-2 p-4 rounded-3xl glass-panel shadow-xl border border-slate-200 dark:border-slate-800 animate-fade-in">
               <div className="flex flex-col gap-1">
                 {navLinks.map((link) => (
                   <Link
                     key={link.id}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-colors min-h-[44px]"
+                    className="flex items-center justify-between px-4 py-3 rounded-2xl text-sm font-medium text-slate-900 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-colors"
                   >
                     <span>{link.label}</span>
-                    {activeSection === link.id && <span className="w-2 h-2 rounded-full bg-emerald-500" />}
+                    {activeSection === link.id && <span className="w-1.5 h-1.5 rounded-full bg-slate-950 dark:bg-white" />}
                   </Link>
                 ))}
                 <div className="pt-3 mt-2 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs font-mono text-slate-500">
                   <span>Colombo: {colomboTime}</span>
-                  <span className="text-emerald-500 flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> Systems Active
-                  </span>
+                  <span className="text-emerald-500">Systems Active</span>
                 </div>
               </div>
             </div>
