@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="16" fill="#090a0f"/>
+  <rect x="2" y="2" width="60" height="60" rx="14" stroke="#10b981" stroke-opacity="0.3" stroke-width="2"/>
+  <text x="32" y="40" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="22" fill="#10b981">DM</text>
+</svg>
